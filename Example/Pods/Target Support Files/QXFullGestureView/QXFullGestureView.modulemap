@@ -1,0 +1,6 @@
+framework module QXFullGestureView {
+  umbrella header "QXFullGestureView-umbrella.h"
+
+  export *
+  module * { export * }
+}

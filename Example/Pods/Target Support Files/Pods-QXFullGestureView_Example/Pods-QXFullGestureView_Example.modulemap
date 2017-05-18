@@ -1,0 +1,6 @@
+framework module Pods_QXFullGestureView_Example {
+  umbrella header "Pods-QXFullGestureView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
