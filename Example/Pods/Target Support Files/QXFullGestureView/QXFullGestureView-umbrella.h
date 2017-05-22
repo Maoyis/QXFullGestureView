@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "QXGestureView.h"
 
 FOUNDATION_EXPORT double QXFullGestureViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char QXFullGestureViewVersionString[];

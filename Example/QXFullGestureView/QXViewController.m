@@ -8,7 +8,11 @@
 
 #import "QXViewController.h"
 
+#import <QXFullGestureView/QXGestureView.h>
+
 @interface QXViewController ()
+
+@property (weak, nonatomic) IBOutlet QXGestureView *gView;
 
 @end
 
@@ -17,7 +21,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    __block CGRect rect = self.gView.frame;
+    self.gView.panBlock = ^(UIPanGestureRecognizer *pan) {
+        if (pan.state == UIGestureRecognizerStateEnded) {
+            [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionCurveLinear animations:^{
+                self.gView.frame = rect;
+                self.gView.center = self.view.center;
+            } completion:nil];
+        }
+    };
+    self.gView.isMove = YES;
+    self.gView.isPinch = YES;
+    self.gView.isRotation = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning
